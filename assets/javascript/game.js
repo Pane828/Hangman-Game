@@ -21,11 +21,12 @@
 var list = ["cuzco", "bangkok", "rome", "savannah", "barcelona", "kyoto", 					//array to hold the word bank
 			"florence", "charleston", "tokyo", "orlando", "prague", "charlotte"];			
 var underLine =[];																			//array to generate underlines
-var correctGuess =[];																		//this array stores the letter of the word that is generated
+var correctGuess =[];
+var userGuess =	[];																			//this array stores the letter of the word that is generated
 
 var lives = 5;	
 var wrong = 0;																				//stores the number of lives															/
-var Line =" _ ";																			//the line variable
+var Line ="_";																				//the line variable
 var word ="";																				//variable for the generated word
 
 function reset(){
@@ -36,6 +37,12 @@ function clicked(){
 	var entry = event.entry || event.srcElement;	
 	var lower = entry.id;																	//this is to register the value of the key when clicked
     var value = document.getElementById(lower).getAttribute('value');
+	userGuess.push(value);
+
+if (correctGuess.includes() == userGuess.includes()){										//"under construction" this identifies/matches the values within the arrays
+
+}
+
     console.log(value);
     alert(value);
 }
@@ -48,9 +55,13 @@ function UnderLine(){
 	RandomWord();																			//takes the characters from the generated word and adds it int the array
 	for(var i = 0; i < word.length; i++){													//loops based on the number of characters in the word
 	correctGuess[i] = word.charAt(i);														
-	underLine[i] = " _ ";
+	underLine[i] = "_";
 	}
-																							//creates underlines based on the number of charachters
-	document.getElementById("guessWord").innerHTML = Line;
+	
+	mergedLine = underLine.join(" ");														//creates underlines based on the number of charachters
+	document.getElementById("guessWord").innerHTML = " " + mergedLine;
 }
 
+
+
+alert("Welcome to hangman!");
