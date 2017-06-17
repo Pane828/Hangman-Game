@@ -18,6 +18,7 @@
     //  };
 
 
+
 var list = ["cuzco", "bangkok", "rome", "savannah", "barcelona", "kyoto", 					//array to hold the word bank
 			"florence", "charleston", "tokyo", "orlando", "prague", "charlotte"];			
 var underLine =[];																			//array to generate underlines
@@ -39,10 +40,6 @@ function clicked(){
     var value = document.getElementById(lower).getAttribute('value');
 	userGuess.push(value);
 
-if (correctGuess.includes() == userGuess.includes()){										//"under construction" this identifies/matches the values within the arrays
-
-}
-
     console.log(value);
     alert(value);
 }
@@ -60,8 +57,21 @@ function UnderLine(){
 	
 	mergedLine = underLine.join(" ");														//creates underlines based on the number of charachters
 	document.getElementById("guessWord").innerHTML = " " + mergedLine;
+	document.getElementById("spanLives").innerHTML = lives;									//displays the number of lives
+
+if (correctGuess.includes() == userGuess.includes()){										//"under construction" this identifies/matches the values within the arrays																																									
+	underLine[i] = userGuess[i];	
+	} else {
+	underLine[i] = "_";
+	lives--;
+	}
+	
 }
 
-
+if (lives = 0){
+	alert("game over");
+}
 
 alert("Welcome to hangman!");
+
+UnderLine();
