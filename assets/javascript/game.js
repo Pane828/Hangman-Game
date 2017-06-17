@@ -17,45 +17,40 @@
 
     //  };
 
-var guess = {};
-var list = ["cuzco", "bangkok", "rome", "savannah", "barcelona", "kyoto", 
-			"florence", "charleston", "tokyo", "orlando", "prague", "charlotte"];
-var underLine =[];
-var correctGuess =[];
 
-var lives = 5;
-var numberWord = list.length;
+var list = ["cuzco", "bangkok", "rome", "savannah", "barcelona", "kyoto", 					//array to hold the word bank
+			"florence", "charleston", "tokyo", "orlando", "prague", "charlotte"];			
+var underLine =[];																			//array to generate underlines
+var correctGuess =[];																		//this array stores the letter of the word that is generated
 
-var Line ="_";
-var word ="";
+var lives = 5;	
+var wrong = 0;																				//stores the number of lives															/
+var Line =" _ ";																			//the line variable
+var word ="";																				//variable for the generated word
 
-function RandomWord(){ 
+function reset(){
+	window.location.reload();
+}
+
+function clicked(){			
+	var entry = event.entry || event.srcElement;	
+	var lower = entry.id;																	//this is to register the value of the key when clicked
+    var value = document.getElementById(lower).getAttribute('value');
+    console.log(value);
+    alert(value);
+}
+
+function RandomWord(){ 																		//generates a random word from the word bank
 	word = list[(Math.floor(Math.random()*list.length))];
 }
 
 function UnderLine(){
-	RandomWord();
-for(var i = 0; i < word.length; i++){
-	correctGuess[i] = word.charAt(i);
-	underLine[i] = "_";
-
+	RandomWord();																			//takes the characters from the generated word and adds it int the array
+	for(var i = 0; i < word.length; i++){													//loops based on the number of characters in the word
+	correctGuess[i] = word.charAt(i);														
+	underLine[i] = " _ ";
 	}
-
-	Line = underLine.join("");
+																							//creates underlines based on the number of charachters
 	document.getElementById("guessWord").innerHTML = Line;
 }
 
-Update = function(letter){
-	changes = 0;
-
-	for(var i = 0; i < word.length; i++){
-		list[i] = word.charAt(i);
-
-	if(word.charAt(i) == letter){
-		underLine = letter;
-		changes++;
-	}
-}
-}
-
-guess.length = list.length
